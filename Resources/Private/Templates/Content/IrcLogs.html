@@ -1,0 +1,76 @@
+{namespace flux=FluidTYPO3\Flux\ViewHelpers}
+{namespace v=Tx_Vhs_ViewHelpers}
+<f:layout name="Content" />
+
+<f:section name="Configuration">
+	<flux:form id="ircLogs" icon="EXT:fluidtypo3org/ext_icon.gif">
+		<flux:field.input name="settings.logDirectory" />
+		<flux:field.input name="settings.filterPrefix" />
+	</flux:form>
+</f:section>
+
+<f:section name="Preview"></f:section>
+
+<f:section name="Main">
+	<div class="row">
+		<div class="col-md-2">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">IRC logs</h3>
+				</div>
+				<div class="panel-body">
+					{selectedDateStamp}
+					<p>Logs from channel #fedext on freenode - our official support channel.</p>
+					<select onchange="javascript:document.location.href=$(this).val();" class="form-control">
+						<f:for each="{files}" as="yearly" key="year">
+							<optgroup label="{year}">
+							<f:for each="{yearly}" as="monthly" key="month">
+								{v:var.set(name: 'dateStamp', value: '{year}{month}')}
+								{f:uri.action(arguments: {date: '{dateStamp}'}) -> v:var.set(name: 'url')}
+								<f:if condition="{dateStamp} == {selectedDateStamp}">
+									<f:then>
+										<option value="{url}" selected="selected">{year}-{month}</option>
+									</f:then>
+									<f:else>
+										<option value="{url}">{year}-{month}</option>
+									</f:else>
+								</f:if>
+							</f:for>
+							</optgroup>
+						</f:for>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-10">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">IRC log range: {selectedDateStamp}*</h3>
+				</div>
+				<div class="panel-body">
+					<f:if condition="1 < {current -> f:count()}">
+						<ul class="nav nav-pills">
+							<f:for each="{current}" as="file" key="fileDate">
+								<li>
+									<f:link.action arguments="{date: fileDate}">
+										{fileDate -> v:format.substring(start: 6)}
+									</f:link.action>
+								</li>
+							</f:for>
+						</ul>
+					</f:if>
+					<f:for each="{current}" as="file" key="fileDate">
+						<h4>
+							<f:link.action arguments="{date: fileDate}">
+								{fileDate}
+							</f:link.action>
+						</h4>
+						<ul class="unstyled irc-lines">
+							{file -> f:format.raw()}
+						</ul>
+					</f:for>
+				</div>
+			</div>
+		</div>
+	</div>
+</f:section>

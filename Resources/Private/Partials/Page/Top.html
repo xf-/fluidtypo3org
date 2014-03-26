@@ -1,0 +1,25 @@
+{namespace v=Tx_Vhs_ViewHelpers}
+<div id="top-nav">
+	<div class="container">
+		<v:page.menu as="menu" useShortcutData="0">
+			<ul>
+				<f:for each="{menu}" as="menuItem">
+					<li class="{menuItem.class}">
+						<f:link.page pageUid="{menuItem.uid}" class="{menuItem.class}">
+							<i class="{menuItem.tx_fluidtypo3org_icon}"></i>
+							{f:if(condition: menuItem.nav_title, then: menuItem.nav_title, else: menuItem.title)}
+						</f:link.page>
+					</li>
+				</f:for>
+			</ul>
+		</v:page.menu>
+		<ul class="pull-right">
+			<li>
+				<f:link.page pageUid="{settings.blogPageUid}"><span class="hidden-xs">Blog</span> <i class="glyphicon fa fa-rss"></i></f:link.page>
+			</li>
+			<li>
+				<a href="https://github.com/FluidTYPO3"><span class="hidden-xs">On Github</span> <i class="glyphicon fa fa-github"></i></a>
+			</li>
+		</ul>
+	</div>
+</div>

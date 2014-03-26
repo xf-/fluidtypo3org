@@ -1,0 +1,38 @@
+{namespace flux=FluidTYPO3\Flux\ViewHelpers}
+{namespace v=Tx_Vhs_ViewHelpers}
+<f:layout name="Content" />
+
+<f:section name="Configuration">
+	<flux:form id="githubmarkdown" icon="EXT:fluidtypo3org/ext_icon.gif">
+		<flux:field.input name="settings.markdownFile">
+			<flux:wizard.link activeTab="files" />
+		</flux:field.input>
+	</flux:form>
+</f:section>
+
+<f:section name="Preview"></f:section>
+
+<f:section name="Main">
+	<div class="text-right">
+		<div class="editoptions">
+			<a class="btn btn-default" href="{edit}" class="btn" data-toggle="tooltip" data-placement="top"
+			   title="...and make sure you read the contributions guide link above the edit form before submitting!">
+				<i class="fa fa-pencil"></i> Edit this chapter on Github
+			</a>
+			<span class="dropdown text-left">
+				<f:render section="Jumper" arguments="{parentPageUid: parentPageUid}" />
+			</span>
+		</div>
+	</div>
+	{html -> f:format.raw()}
+	<navigation class="dropdown dropup">
+		<f:render section="Jumper" arguments="{parentPageUid: parentPageUid}" />
+	</navigation>
+</f:section>
+
+<f:section name="Jumper">
+	<a data-target="#" class="btn btn-primary dropdown-toggle text-left" data-toggle="dropdown">
+		<i class="fa fa-hand-o-right"></i> Jump to... <span class="caret"></span>
+	</a>
+	<v:page.menu.directory pages="{parentPageUid}" class="dropdown-menu text-left" additionalAttributes="{role: 'menu'}" />
+</f:section>

@@ -1,0 +1,40 @@
+plugin.tx_fluidtypo3org.view {
+	templateRootPath = EXT:fluidtypo3org/Resources/Private/Templates/
+    partialRootPath = EXT:fluidtypo3org/Resources/Private/Partials/
+    layoutRootPath = EXT:fluidtypo3org/Resources/Private/Layouts/
+}
+
+plugin.tx_fluidtypo3org.settings {
+	basePath = fileadmin/documentation/
+	originalImagePathMatch = /Images/
+	editBasePath = https://github.com/FluidTYPO3/documentation/edit/rewrite/
+	imagePathPrepend =
+	blogPageUid =
+	maintainers = NamelessCoder:Claus Due <claus@namelesscoder.net>,bjo3rnf:Björn Fromme <mail@bjo3rn.com>,cedricziel:Cedric Ziel <cedric@cedric-ziel.com>,danilobuerger:Danilo Bürger <danilo.buerger@hmspl.de>,BenjaminR:Benjamin Rau <rau@codearts.at>,fudriot:Fabien Udriot <fabien.udriot@ecodev.ch>
+	contributorRepositories = flux,fluidcontent,fluidpages,vhs,fluidcontent_core,fromage,fluidbackend,schemaker,view,tool,flll
+	blacklist =
+	supportChatPageUid =
+}
+
+plugin.tx_news.view.overlays.fluidtypo3org {
+	templateRootPath = EXT:fluidtypo3org/Resources/Private/Templates/
+	partialRootPath = EXT:fluidtypo3org/Resources/Private/Partials/
+	layoutRootPath = EXT:fluidtypo3org/Resources/Private/Layouts/
+}
+
+plugin.tx_vhs.settings {
+	prependPath = http://static.fluidtypo3.org/
+}
+
+plugin.tx_vhs.settings.asset {
+	jquery.path = EXT:fluidtypo3org/Resources/Public/Javascript/jquery-1.11.0.min.js
+	bootstrapScript.path = EXT:fluidtypo3org/Resources/Public/Libraries/bootstrap-3.1.1-dist/js/bootstrap.min.js
+	videojsScript.path = EXT:fluidtypo3org/Resources/Public/Libraries/video-js/video.js
+	siteScript.path = EXT:fluidtypo3org/Resources/Public/Javascript/Site.js
+	prettifyScript.path = EXT:fluidtypo3org/Resources/Public/Javascript/Prettify.js
+	prettifyStyle.path = EXT:fluidtypo3org/Resources/Public/Stylesheet/Prettify.css
+	bootstrapStyle.path = EXT:fluidtypo3org/Resources/Public/Libraries/bootstrap-3.1.1-dist/css/bootstrap.min.css
+	fontawesomeStyle.path = EXT:fluidtypo3org/Resources/Public/Libraries/font-awesome-4.0.3/css/font-awesome.min.css
+	siteStyle.path = EXT:fluidtypo3org/Resources/Public/Stylesheet/Site.css
+	videojsStyle.path = EXT:fluidtypo3org/Resources/Public/Libraries/video-js/video-js.min.css
+}

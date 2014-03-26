@@ -1,0 +1,49 @@
+{namespace flux=FluidTYPO3\Flux\ViewHelpers}
+{namespace v=Tx_Vhs_ViewHelpers}
+<f:layout name="Content" />
+
+<f:section name="Configuration">
+	<flux:form id="contributors" icon="EXT:fluidtypo3org/ext_icon.gif">
+	</flux:form>
+</f:section>
+
+<f:section name="Preview"></f:section>
+
+<f:section name="Main">
+	<h3>{people.maintainers -> f:count()} Maintainers <small>The Fluid Powered TYPO3 Team</small></h3>
+	<div class="row clearfix">
+		<f:for each="{people.maintainers}" as="maintainer">
+			<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
+				<div class="thumbnail">
+					<img class="img-responsive" src="https://www.gravatar.com/avatar/{maintainer.gravatar}?s=720" alt="{maintainer.username}">
+					<div class="caption">
+						<h5>{maintainer.name}</h5>
+						<p>{maintainer.username}</p>
+					</div>
+				</div>
+			</div>
+		</f:for>
+	</div>
+	<h3>{people.contributors -> f:count()} Contributors <small>Everyone who has helped throughout the years</small></h3>
+	<div class="row clearfix contributors">
+		<f:for each="{people.contributors}" as="contributor">
+			<div class="col-xs-4 col-sm-3 col-md-2 col-lg-2">
+				<div class="thumbnail">
+					<img class="img-responsive" src="https://www.gravatar.com/avatar/{contributor.gravatar}?s=220&d=retro" alt="{contributor.username}">
+					<div class="caption">
+						{contributor.name}
+					</div>
+				</div>
+			</div>
+		</f:for>
+		<div class="col-xs-3 col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<p class="text-center text-danger lead huge">&times;</p>
+				<div class="caption">
+					Don't want to be on this list? Contact us, for example
+					<f:link.page pageUid="{supportChatPageUid}">using the support chat!</f:link.page>
+				</div>
+			</div>
+		</div>
+	</div>
+</f:section>

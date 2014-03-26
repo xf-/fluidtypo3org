@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<T3locallang>
+  <meta type="array">
+    <type>module</type>
+    <description>Labels for languages: default</description>
+  </meta>
+  <data type="array">
+    <languageKey index="default" type="array">
+      <label index="flux.fluidfluxform">flux.fluidfluxform</label>
+      <label index="flux.fluidfluxform.grids.grid">flux.fluidfluxform.grids.grid</label>
+    </languageKey>
+  </data>
+</T3locallang>

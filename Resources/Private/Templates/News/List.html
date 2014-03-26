@@ -1,0 +1,21 @@
+{namespace n=Tx_News_ViewHelpers}
+{namespace v=Tx_Vhs_ViewHelpers}
+
+<div class="clearfix row{f:if(condition: '{settings.templateLayout} == \'Wide\'', then: '-fluid')}">
+	<f:if condition="{f:count(subject: news)} < {settings.list.paginate.itemsPerPage}">
+		<f:then>
+			<f:for each="{news}" as="newsItem" iteration="iteration">
+				<f:render partial="List/Item{settings.templateLayout -> v:or(alternative: 'Default')}"
+				          arguments="{newsItem: newsItem, settings:settings, className:className, view:'list', iteration: iteration}"/>
+			</f:for>
+		</f:then>
+		<f:else>
+			<f:widget.paginate objects="{news}" as="paginatedNews" configuration="{settings.list.paginate}">
+				<f:for each="{paginatedNews}" as="newsItem" iteration="iteration">
+					<f:render partial="List/Item{settings.templateLayout -> v:or(alternative: 'Default')}"
+					          arguments="{newsItem: newsItem, settings:settings, className:className, view:'list', iteration: iteration}"/>
+				</f:for>
+			</f:widget.paginate>
+		</f:else>
+	</f:if>
+</div>

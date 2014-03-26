@@ -1,0 +1,50 @@
+{namespace flux=FluidTYPO3\Flux\ViewHelpers}
+{namespace v=Tx_Vhs_ViewHelpers}
+<f:layout name="Page/Front" />
+
+<f:section name="Configuration">
+	<flux:form id="page">
+		<flux:grid>
+			<flux:grid.row>
+				<flux:grid.column colPos="1" name="top" label="Top" />
+			</flux:grid.row>
+			<flux:grid.row>
+				<flux:grid.column colPos="0" name="main" label="Main" />
+			</flux:grid.row>
+			<flux:grid.row>
+				<flux:grid.column colPos="2" name="footer" label="Footer" />
+			</flux:grid.row>
+		</flux:grid>
+	</flux:form>
+</f:section>
+
+<f:section name="Main">
+	<div id="teaser">
+		<div class="container">
+			<a href="/" title="Home" id="home">
+				<span>
+					<canvas class="logo sub"></canvas>
+				</span>
+			</a>
+			<v:page.menu pageUid="{settings.documentationRootPageUid}">
+				{rootLine -> f:count() -> v:var.set(name: 'numberOfSegments')}
+				{f:if(condition: '{rootLine -> f:count()} > 4', then: 3, else: 2) -> v:var.set(name: 'slicePoint')}
+				<h1>{rootLine -> v:iterator.reverse() -> v:iterator.slice(start: '-{slicePoint}') -> v:iterator.extract(key: 'title') -> v:iterator.implode(glue: ' &middot; ') -> v:or(alternative: page.title)}</h1>
+			</v:page.menu>
+			<v:page.menu entryLevel="1" id="submenu" />
+		</div>
+	</div>
+	<div class="container body">
+		<v:var.set name="contentWidths" value="{0: 12, 1: 12, 2: 12}" />
+		<div class="row">
+			<div class="col-md-3 col-xs-4 col-sm-4">
+				<h4>{v:page.info(pageUid: settings.documentationRootPageUid, field: 'title')}</h4>
+				<v:page.menu entryLevel="2" levels="3" expandAll="TRUE" class="leftmenu" />
+			</div>
+			<v:var.set name="contentWidths" value="{0: 9, 1: 8, 2: 8}" />
+			<div class="container col-md-{contentWidths.0} col-xs-{contentWidths.1} col-sm-{contentWidths.2}">
+				<v:content.render column="0" />
+			</div>
+		</div>
+	</div>
+</f:section>
