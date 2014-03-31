@@ -1,7 +1,7 @@
 plugin.tx_fluidtypo3org.view {
 	templateRootPath = EXT:fluidtypo3org/Resources/Private/Templates/
-    partialRootPath = EXT:fluidtypo3org/Resources/Private/Partials/
-    layoutRootPath = EXT:fluidtypo3org/Resources/Private/Layouts/
+	partialRootPath = EXT:fluidtypo3org/Resources/Private/Partials/
+	layoutRootPath = EXT:fluidtypo3org/Resources/Private/Layouts/
 }
 
 plugin.tx_fluidtypo3org.settings {
