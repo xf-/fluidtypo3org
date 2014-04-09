@@ -194,7 +194,7 @@ class ContentController extends AbstractFluxController {
 	 * @return void
 	 */
 	protected function changeBlockquoteToInlineAlerts(\DOMDocument $document) {
-		foreach ($document->getElementsByTagName('blockquote') as $quoteNode) {
+		while ($quoteNode = $document->getElementsByTagName('blockquote')->item(0)) {
 			$divNode = $document->createElement('div', $quoteNode->textContent);
 			foreach ($quoteNode->childNodes as $childNode) {
 				$newChild = $document->importNode($childNode, TRUE);
