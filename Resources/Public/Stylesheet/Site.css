@@ -317,7 +317,7 @@ article.markdown-body div,
 article.markdown-body ul,
 article.markdown-body ol,
 article.markdown-body p {
-	max-width: 40em;
+	max-width: 43em;
 	line-height: 1.7em;
 	font-size: 120%;
 }
