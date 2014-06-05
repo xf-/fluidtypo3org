@@ -38,3 +38,5 @@ plugin.tx_vhs.settings.asset {
 	siteStyle.path = EXT:fluidtypo3org/Resources/Public/Stylesheet/Site.css
 	videojsStyle.path = EXT:fluidtypo3org/Resources/Public/Libraries/video-js/video-js.min.css
 }
+
+page.shortcutIcon = EXT:fluidtypo3org/Resources/Public/Images/favicon.ico
