@@ -1,5 +1,5 @@
 {namespace flux=FluidTYPO3\Flux\ViewHelpers}
-{namespace v=Tx_Vhs_ViewHelpers}
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
 <f:layout name="Content" />
 
 <f:section name="Configuration">
@@ -25,8 +25,8 @@
 						<f:for each="{files}" as="yearly" key="year">
 							<optgroup label="{year}">
 							<f:for each="{yearly}" as="monthly" key="month">
-								{v:var.set(name: 'dateStamp', value: '{year}{month}')}
-								{f:uri.action(arguments: {date: '{dateStamp}'}) -> v:var.set(name: 'url')}
+								{v:variable.set(name: 'dateStamp', value: '{year}{month}')}
+								{f:uri.action(arguments: {date: '{dateStamp}'}) -> v:variable.set(name: 'url')}
 								<f:if condition="{dateStamp} == {selectedDateStamp}">
 									<f:then>
 										<option value="{url}" selected="selected">{year}-{month}</option>

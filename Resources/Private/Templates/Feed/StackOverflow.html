@@ -1,15 +1,15 @@
 {namespace feed=Tx_RssDisplay_ViewHelpers}
-{namespace v=Tx_Vhs_ViewHelpers}
-{v:var.set(name: 'atom')}
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+{v:variable.set(name: 'atom')}
 <f:for each="{items}" as="item" iteration="iteration">
-	{item.data.child -> v:iterator.first() -> v:iterator.extract(key: 'author', recursive: 0) -> v:iterator.first() -> v:iterator.extract(key: 'child', recursive: 0) -> v:iterator.first() -> v:var.set(name: 'author')}
-	{item.data.child -> v:iterator.first() -> v:iterator.extract(key: 'category', recursive: 0) -> v:var.set(name: 'categories')}
+	{item.data.child -> v:iterator.first() -> v:iterator.extract(key: 'author', recursive: 0) -> v:iterator.first() -> v:iterator.extract(key: 'child', recursive: 0) -> v:iterator.first() -> v:variable.set(name: 'author')}
+	{item.data.child -> v:iterator.first() -> v:iterator.extract(key: 'category', recursive: 0) -> v:variable.set(name: 'categories')}
 	<div class="tab-pane{f:if(condition: iteration.isFirst, then: ' active')}" id="{feed:item.title() -> v:format.url.sanitizeString()}">
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<div class="pull-right">
 					<f:for each="{categories}" as="category">
-						{v:var.get(name: 'category.attribs') -> v:iterator.extract(key: 'term') -> v:iterator.first() -> v:var.set(name: 'term')}
+						{v:variable.get(name: 'category.attribs') -> v:iterator.extract(key: 'term') -> v:iterator.first() -> v:variable.set(name: 'term')}
 						<span class="label label-info">{term}</span>
 					</f:for>
 					<a href="http://stackoverflow.com/questions/tagged/fedext" class="btn btn-default btn-xs">
@@ -23,7 +23,7 @@
 					v:format.substring(start: 7) -> f:format.crop(maxCharacters: 50)}</a>&nbsp;
 				<div>
 					<i class="icon fa fa-calendar"></i> <f:format.date format="Y-m-d">@{item.data.date.parsed}</f:format.date>&nbsp;
-					<i class="icon fa fa-user"></i> <a href="{v:var.get(name: 'author.uri.0.data')}">{v:var.get(name: 'author.name.0.data')}</a>
+					<i class="icon fa fa-user"></i> <a href="{v:variable.get(name: 'author.uri.0.data')}">{v:variable.get(name: 'author.name.0.data')}</a>
 				</div>
 			</div>
 			<div class="panel-body">
