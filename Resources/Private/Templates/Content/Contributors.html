@@ -3,13 +3,20 @@
 <f:layout name="Content" />
 
 <f:section name="Configuration">
-	<flux:form id="contributors" icon="EXT:fluidtypo3org/ext_icon.gif">
+	<flux:form id="contributors" icon="EXT:fluidtypo3org/ext_icon.gif" label="asdasd">
+
+	<flux:field.tree name="settings.teasermenufce.teaserRoot" table="pages"
+parentField="pid" expandAll="1" multiple="FALSE"
+foreignLabel="title" size="20" width="500"
+nonSelectableLevels="0" showHeader="1" />
+	<flux:field.inline.fal name="test" label="test" />
 	</flux:form>
 </f:section>
 
 <f:section name="Preview"></f:section>
 
 <f:section name="Main">
+	<f:debug>{test}</f:debug>
 	<h3>{people.maintainers -> f:count()} Maintainers <small>The Fluid Powered TYPO3 Team</small></h3>
 	<div class="row clearfix">
 		<f:for each="{people.maintainers}" as="maintainer">
