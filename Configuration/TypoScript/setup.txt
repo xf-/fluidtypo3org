@@ -14,6 +14,7 @@ plugin.tx_fluidtypo3org.settings {
 	contributorRepositories = flux,fluidcontent,fluidpages,vhs,fluidcontent_core,fromage,fluidbackend,schemaker,view,tool,flll
 	blacklist =
 	supportChatPageUid =
+	searchPageUid =
 }
 
 plugin.tx_news.view.overlays.fluidtypo3org {
@@ -40,3 +41,13 @@ plugin.tx_vhs.settings.asset {
 }
 
 page.shortcutIcon = EXT:fluidtypo3org/Resources/Public/Images/favicon.ico
+
+plugin.tx_solr {
+	templateFiles.results = EXT:fluidtypo3org/Resources/Private/Templates/Solr/Results.html
+	search {
+		suggest = 1
+		faceting = 1
+        results.resultsHighlighting = 1
+	}
+	viewHelpers.crop.maxLength = 60
+}

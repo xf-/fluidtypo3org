@@ -3,9 +3,9 @@
 	<div class="container">
 		<v:page.menu as="menu">
 			<ul>
-				<f:for each="{menu}" as="menuItem">
+				<f:for each="{menu}" as="menuItem" iteration="iteration">
 					<li class="{menuItem.class}">
-						<f:link.page pageUid="{menuItem.uid}" class="{menuItem.class}">
+						<f:link.page pageUid="{menuItem.uid}" class="{menuItem.class}" tabindex="{iteration.cycle -> v:math.sum(b: 10)}">
 							<i class="{menuItem.tx_fluidtypo3org_icon}"></i>
 							{f:if(condition: menuItem.nav_title, then: menuItem.nav_title, else: menuItem.title)}
 						</f:link.page>
@@ -19,6 +19,28 @@
 			</li>
 			<li>
 				<a href="https://github.com/FluidTYPO3"><span class="hidden-xs">On Github</span> <i class="glyphicon fa fa-github"></i></a>
+			</li>
+			<li>
+				<form class="navbar-form navbar-left" role="search" method="get" action="{f:uri.page(pageUid: settings.searchPageUid)}">
+					<div class="form-group">
+						<input type="text" class="form-control input-sm" placeholder="Search" tabindex="1" name="q" id="searchfield">
+						<button type="submit" class="btn btn-sm btn-inverse"><i class="fa fa-search"></i></button>
+					</div>
+				</form>
+				<script type="text/javascript">
+					function gq(qs) {
+						qs = qs.split("+").join(" ");
+						var params = {}, tokens, re = /[?&]?([^=]+)=([^&]*)/g;
+						while (tokens = re.exec(qs)) {
+							params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+						};
+						return params;
+					};
+					var pm = gq(window.location.href.substr(window.location.href.indexOf('?') + 1));
+					if (typeof pm.q != 'undefined') {
+						document.getElementById('searchfield').value = pm.q;
+					};
+				</script>
 			</li>
 		</ul>
 	</div>
