@@ -6,6 +6,8 @@
 		<f:render partial="Content/Header" arguments="{content: content, record: record}" optional="TRUE" />
 	</f:if>
 	<fcc:tag name="{content.settings.container.tagName}" class="{content.settings.container.className}" title="{content.settings.container.titleAttribute}">
+		<!--TYPO3SEARCH_begin-->
 		<f:render section="Main" />
+		<!--TYPO3SEARCH_end-->
 	</fcc:tag>
 </flux:form.data>

@@ -17,6 +17,8 @@ plugin.tx_fluidtypo3org.settings {
 	searchPageUid =
 }
 
+plugin.tx_fluidcontentcore.view.layoutRootPath = EXT:fluidtypo3org/Resources/Private/Layouts/
+
 plugin.tx_news.view.overlays.fluidtypo3org {
 	templateRootPath = EXT:fluidtypo3org/Resources/Private/Templates/
 	partialRootPath = EXT:fluidtypo3org/Resources/Private/Partials/
