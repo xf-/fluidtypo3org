@@ -52,4 +52,6 @@ plugin.tx_solr {
         results.resultsHighlighting = 1
 	}
 	viewHelpers.crop.maxLength = 60
+	index.queue.news.fields.url.typolink.parameter < plugin.tx_fluidtypo3org.settings.blogPageUid
 }
+
