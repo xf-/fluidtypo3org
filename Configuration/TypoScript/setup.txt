@@ -61,6 +61,32 @@ plugin.tx_solr {
 	suggest = 1
 	viewHelpers.crop.maxLength = 60
 	search.faceting.facets {
+		type {
+			renderingInstruction = CASE
+			renderingInstruction {
+				key.field = optionValue
+				pages = TEXT
+				pages.value = Page
+
+				irc = TEXT
+				irc.value = IRC message
+
+				viewhelper = TEXT
+				viewhelper.value = ViewHelper
+
+				viewhelper_schema = TEXT
+				viewhelper_schema.value = ViewHelper XSD Schema
+
+				viewhelper_argument = TEXT
+				viewhelper_argument.value = ViewHelper argument
+
+				tx_solr_file = TEXT
+				tx_solr_file.value = File
+
+				tx_news_domain_model_news = TEXT
+				tx_news_domain_model_news.value = News item
+			}
+		}
 		extension {
 			label = Extension key
 			field = extension
