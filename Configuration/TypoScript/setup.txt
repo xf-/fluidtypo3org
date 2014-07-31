@@ -52,9 +52,20 @@ plugin.tx_solr {
         results.resultsHighlighting = 1
 	}
 	viewHelpers.crop.maxLength = 60
-	index.queue.news.fields.url.typolink {
-		parameter < plugin.tx_fluidtypo3org.settings.blogPageUid
-		additionalParams = &tx_news_pi1[news]={field:uid}
+	index.queue {
+		news.fields.url.typolink {
+			parameter < plugin.tx_fluidtypo3org.settings.blogPageUid
+			additionalParams = &tx_news_pi1[news]={field:uid}
+		}
+		irc = 1
+		irc {
+		    initialization = FluidTYPO3\Fluidtypo3org\Indexing\IrcInitializer
+		    indexingPriority = 0
+		    indexer = FluidTYPO3\Fluidtypo3org\Indexing\IrcIndexer
+		    indexer {
+		        directory = irclogs/
+		    }
+		}
 	}
 }
 
