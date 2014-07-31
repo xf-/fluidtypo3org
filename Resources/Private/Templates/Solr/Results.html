@@ -33,10 +33,6 @@
 
 	<!-- ###SOLR_SEARCH_RESULTS### begin -->
 
-	###RESULTS.SEARCHED_FOR###
-	###RESULTS.FOUND###
-	###RESULTS.RANGE###
-
 	<div id="tx-solr-pagination">
 		<!-- ###SOLR_SEARCH_RESULTSPERPAGESWITCH### begin -->
 		<div id="tx-solr-pagination-results-per-page">
@@ -55,7 +51,7 @@
 		###RESULTS.PAGEBROWSER###
 	</div>
 
-	<ol start="###RESULTS.OFFSET###" class="results-list">
+	<ol start="###RESULTS.OFFSET###" class="results-list list-unstyled">
 		<!-- ###LOOP:RESULT_DOCUMENTS### begin -->
 		<!-- ###LOOP_CONTENT### -->
 		<li class="results-entry###IF:###RESULT_DOCUMENT.isElevated###|==|1|class### results-elevated###IF:###RESULT_DOCUMENT.isElevated###|==|1|class###">
@@ -92,6 +88,8 @@
 
 	###RESULTS.PAGEBROWSER###
 
+	###RESULTS.FOUND###
+
 	<!-- ###SOLR_SEARCH_RESULTS### end -->
 
 
@@ -108,10 +106,8 @@
 
 	<!-- ###SOLR_SEARCH_SORTING### begin -->
 	<div id="tx-solr-sorting" class="secondaryContentSection">
-		<div class="csc-header">
-			<h3 class="csc-firstHeader">###LLL:sorting_sortBy###</h3>
-		</div>
-		<ul>
+		<h3>###LLL:sorting_sortBy###</h3>
+		<ul class="list-unstyled">
 			<!-- ###LOOP:SORT### begin -->
 			<!-- ###LOOP_CONTENT### -->
 			<li>
@@ -129,10 +125,8 @@
 	<div id="tx-solr-faceting">
 		<!-- ###USED_FACETS### begin -->
 		<div id="tx-solr-facets-in-use" class="secondaryContentSection">
-			<div class="csc-header">
-				<h3 class="csc-firstHeader">###LLL:faceting_resultsNarrowedBy###</h3>
-			</div>
-			<ul>
+			<h3>###LLL:faceting_resultsNarrowedBy###</h3>
+			<ul class="list-unstyled">
 				<!-- ###LOOP:FACETS_IN_USE### begin -->
 				<!-- ###LOOP_CONTENT### -->
 				<li>
@@ -150,10 +144,8 @@
 
 		<!-- ###AVAILABLE_FACETS### begin -->
 		<div id="tx-solr-facets-available" class="secondaryContentSection">
-			<div class="csc-header">
-				<h3 class="csc-firstHeader">###LLL:faceting_narrowSearch###</h3>
-			</div>
-			<ul class="facets">
+			<h3>###LLL:faceting_narrowSearch###</h3>
+			<ul class="facets list-unstyled">
 				<!-- ###SINGLE_FACET### begin -->
 				<li class="facet facet-###FACET.name### facet-type-###FACET.type###">
 					<h5 class="facet-label csc-header">###FACET.label###</h5>
@@ -180,9 +172,7 @@
 
 	<!-- ###SOLR_SEARCH_LASTSEARCHES### end -->
 	<div id="tx-solr-lastsearches" class="secondaryContentSection">
-		<div class="csc-header">
-			<h3 class="csc-firstHeader">###LLL:lastSearches###</h3>
-		</div>
+		<h3>###LLL:lastSearches###</h3>
 		<ul>
 			<!-- ###LOOP:LASTSEARCHES### begin -->
 			<!-- ###LOOP_CONTENT### -->
@@ -197,9 +187,7 @@
 
 	<!-- ###SOLR_SEARCH_FREQUENTSEARCHES### begin -->
 	<div id="tx-solr-frequent-searches" class="secondaryContentSection">
-		<div class="csc-header">
-			<h3 class="csc-firstHeader">###LLL:frequentSearches###</h3>
-		</div>
+		<h3>###LLL:frequentSearches###</h3>
 		<ul>
 			<!-- ###LOOP:FREQUENTSEARCHES### begin -->
 			<!-- ###LOOP_CONTENT### -->
