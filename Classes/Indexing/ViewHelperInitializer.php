@@ -4,18 +4,18 @@ namespace FluidTYPO3\Fluidtypo3org\Indexing;
 use FluidTYPO3\Fluidtypo3org\Utility\MiscellaneousUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-class IrcInitializer extends \Tx_Solr_IndexQueue_Initializer_Abstract {
+class ViewHelperInitializer extends \Tx_Solr_IndexQueue_Initializer_Abstract {
 
 	/**
 	 * Initializes Index Queue items for a certain site and indexing
 	 * configuration.
 	 *
-	 * @return boolean
+	 * @return boolean TRUE if initialization was successful, FALSE on error.
 	 */
 	public function initialize() {
 		$directory = $this->indexingConfiguration['indexer.']['directory'];
 		$path = GeneralUtility::getFileAbsFileName($directory);
-		$files = glob($path . '*.log');
+		$files = glob($path . '*.xsd');
 		if (FALSE === $files) {
 			return TRUE;
 		}
@@ -24,7 +24,7 @@ class IrcInitializer extends \Tx_Solr_IndexQueue_Initializer_Abstract {
 			$filename = pathinfo($file, PATHINFO_FILENAME);
 			list (, $uid) = explode('_', $filename);
 			$record = $GLOBALS['TYPO3_DB']->exec_SELECTgetSingleRow('*', 'tx_solr_indexqueue_item', "item_uid = '" . $uid . "'");
-			$placeholder = $GLOBALS['TYPO3_DB']->exec_SELECTgetSingleRow('*', 'irc', "filename = '" . $file . "'");
+			$placeholder = $GLOBALS['TYPO3_DB']->exec_SELECTgetSingleRow('*', 'viewhelper', "filename = '" . $file . "'");
 			if (TRUE === empty($record)) {
 				$record = array();
 			}
@@ -33,7 +33,7 @@ class IrcInitializer extends \Tx_Solr_IndexQueue_Initializer_Abstract {
 			}
 			$placeholder['filename'] = $file;
 			$placeholder['tstamp'] = filemtime($file);
-			$placeholderUid = MiscellaneousUtility::insertOrUpdate('irc', $placeholder);
+			$placeholderUid = MiscellaneousUtility::insertOrUpdate('viewhelper', $placeholder);
 			$record['item_uid'] = $placeholderUid;
 			$record['item_type'] = $this->type;
 			$record['indexing_configuration'] = $this->type;
@@ -44,7 +44,7 @@ class IrcInitializer extends \Tx_Solr_IndexQueue_Initializer_Abstract {
 			$uids[] = $placeholderUid;
 		}
 		$GLOBALS['TYPO3_DB']->exec_DELETEquery('tx_solr_indexqueue_item', "item_type = '" . $this->type . "' AND item_uid NOT IN (" . implode(',', $uids) . ')');
-		$GLOBALS['TYPO3_DB']->exec_DELETEquery('irc', "uid NOT IN (" . implode(',', $uids) . ')');
+		$GLOBALS['TYPO3_DB']->exec_DELETEquery('viewhelper', "uid NOT IN (" . implode(',', $uids) . ')');
 		return TRUE;
 	}
 

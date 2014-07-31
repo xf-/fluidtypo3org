@@ -31,7 +31,6 @@ class IrcIndexer extends \Tx_Solr_IndexQueue_Indexer {
 				}
 			}
 			$sorted = array_map('trim', $sorted);
-			$documents = array();
 			foreach ($sorted as $mark => $line) {
 				$id = \Tx_Solr_Util::getDocumentId(
 					$item->getType(),

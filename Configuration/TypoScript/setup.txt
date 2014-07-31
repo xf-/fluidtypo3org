@@ -45,13 +45,31 @@ plugin.tx_vhs.settings.asset {
 page.shortcutIcon = EXT:fluidtypo3org/Resources/Public/Images/favicon.ico
 
 plugin.tx_solr {
+	cssFiles.results >
 	templateFiles.results = EXT:fluidtypo3org/Resources/Private/Templates/Solr/Results.html
 	search {
 		suggest = 1
 		faceting = 1
-        results.resultsHighlighting = 1
+        sorting = 0
+        results {
+            resultsHighlighting = 1
+            resultsPerPage = 100
+            resultsPerPageSwitchOptions = 100,250,500,1000
+            #pagebrowser.enabled = 0
+        }
 	}
+	suggest = 1
 	viewHelpers.crop.maxLength = 60
+	search.faceting.facets {
+		extension {
+			label = Extension key
+			field = extension
+		}
+		version {
+			label = Extension version
+			field = version
+		}
+	}
 	index.queue {
 		news.fields.url.typolink {
 			parameter < plugin.tx_fluidtypo3org.settings.blogPageUid
@@ -64,6 +82,15 @@ plugin.tx_solr {
 		    indexer = FluidTYPO3\Fluidtypo3org\Indexing\IrcIndexer
 		    indexer {
 		        directory = irclogs/
+		    }
+		}
+		viewhelper = 1
+		viewhelper {
+		    initialization = FluidTYPO3\Fluidtypo3org\Indexing\ViewHelperInitializer
+		    indexingPriority = 0
+		    indexer = FluidTYPO3\Fluidtypo3org\Indexing\ViewHelperIndexer
+		    indexer {
+		        directory = schemas/
 		    }
 		}
 	}
