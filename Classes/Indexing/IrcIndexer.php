@@ -37,16 +37,31 @@ class IrcIndexer extends \Tx_Solr_IndexQueue_Indexer {
 					$record['pid'],
 					$record['uid'] . $mark
 				);
+				$url = $this->createHashedShortcutUrl('community/irc-logs.html', 'tx_fluidtypo3org_content[date]=' . $date, $mark);
 				$document = $this->getBaseDocument($item, $item->getRecord());
 				$document->setField('content', $line);
 				$document->setField('title', 'IRC Log entry ' . $date . ' ' . $mark);
-				$document->setField('url', 'community/irc-logs.html?tx_fluidtypo3org_content%5Bdate%5D=' . $date . '#' . $mark);
+				$document->setField('url', $url);
 				$document->setField('id', $id);
 				$solrConnection->addDocument($document);
 			}
 		}
 
 		return TRUE;
+	}
+
+	/**
+	 * @param string $basePage
+	 * @param string $parameters
+	 * @param string $hash
+	 * @return string
+	 */
+	protected function createHashedShortcutUrl($basePage, $parameters, $hash) {
+		/** @var $cacheHash \TYPO3\CMS\Frontend\Page\CacheHashCalculator */
+		$cacheHash = GeneralUtility::makeInstance('TYPO3\\CMS\\Frontend\\Page\\CacheHashCalculator');
+		$cHash = $cacheHash->generateForParameters($parameters);
+		$url = $basePage . '?' . $parameters . '&cHash=' . $cHash . '#' . $hash;
+		return $url;
 	}
 
 }
