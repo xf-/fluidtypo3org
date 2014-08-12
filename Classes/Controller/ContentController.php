@@ -230,8 +230,9 @@ class ContentController extends AbstractFluxController {
 			$isRelativeMarkdownLink = ('md' === pathinfo($url, PATHINFO_EXTENSION) && FALSE === strpos($url, '://'));
 			$isRelativeAnchorLink = 0 === strpos($url, '#');
 			if (TRUE === $isRelativeAnchorLink) {
-				$link = $this->uriBuilder->reset()->setTargetPageUid($GLOBALS['TSFE']->id) . $url;
+				$link = $this->uriBuilder->reset()->setTargetPageUid($GLOBALS['TSFE']->id)->build() . $url;
 				$linkNode->setAttribute('href', $link);
+				$linkNode->setAttribute('name', substr($linkNode->getAttribute('name'), 13));
 			} elseif (TRUE === $isRelativeMarkdownLink) {
 				$lookupClause = "pi_flexform LIKE '%" . trim($url, './') . "</value>%'";
 				$record = $GLOBALS['TYPO3_DB']->exec_SELECTgetSingleRow('pid', 'tt_content', $lookupClause);
