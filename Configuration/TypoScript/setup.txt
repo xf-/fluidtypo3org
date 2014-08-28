@@ -9,6 +9,7 @@ plugin.tx_fluidtypo3org.settings {
 	originalImagePathMatch = /Images/
 	editBasePath = https://github.com/FluidTYPO3/documentation/edit/rewrite/
 	imagePathPrepend =
+	donatePageUid =
 	blogPageUid =
 	maintainers = NamelessCoder:Claus Due <claus@namelesscoder.net>,bjo3rnf:Björn Fromme <mail@bjo3rn.com>,cedricziel:Cedric Ziel <cedric@cedric-ziel.com>,danilobuerger:Danilo Bürger <danilo.buerger@hmspl.de>,BenjaminR:Benjamin Rau <rau@codearts.at>,fudriot:Fabien Udriot <fabien.udriot@ecodev.ch>
 	contributorRepositories = flux,fluidcontent,fluidpages,vhs,fluidcontent_core,fromage,fluidbackend,schemaker,view,tool,flll

@@ -13,10 +13,18 @@
 				</f:for>
 			</ul>
 		</v:page.menu>
+		{v:page.info(field: 'uid') -> v:variable.set(name: 'pageUid')}
 		<ul class="pull-right">
-			<li>
-				<f:link.page pageUid="{settings.blogPageUid}"><span class="hidden-xs">Blog</span> <i class="glyphicon fa fa-rss"></i></f:link.page>
-			</li>
+			<f:if condition="{settings.donatePageUid}">
+				<li class="{f:if(condition: '{pageUid} == {settings.donatePageUid}', then: 'active')}">
+					<f:link.page pageUid="{settings.donatePageUid}"><span class="hidden-xs">Donate</span> <i class="glyphicon glyphicon-gift"></i></f:link.page>
+				</li>
+			</f:if>
+			<f:if condition="{settings.blogPageUid}">
+				<li class="{f:if(condition: '{pageUid} == {settings.blogPageUid}', then: 'active')}">
+					<f:link.page pageUid="{settings.blogPageUid}"><span class="hidden-xs">Blog</span> <i class="glyphicon fa fa-comments"></i></f:link.page>
+				</li>
+			</f:if>
 			<li>
 				<a href="https://github.com/FluidTYPO3"><span class="hidden-xs">On Github</span> <i class="glyphicon fa fa-github"></i></a>
 			</li>
