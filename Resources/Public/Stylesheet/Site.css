@@ -328,9 +328,9 @@ article.markdown-body h4 {
 }
 
 article.markdown-body p img {
-	margin-right: -18%;
-	margin-left: -12%;
-	width: 140%;
+	margin-right: -10%;
+	margin-left: -5%;
+	width: 130%;
 	max-width: none !important;
 }
 
