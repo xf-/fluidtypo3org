@@ -314,11 +314,7 @@ blockquote:after {
 	content: '\f10e';
 }
 
-.markdown-body div,
-.markdown-body pre.prettyprint code,
-.markdown-body ul,
-.markdown-body ol,
-.markdown-body p {
+.markdown-body {
 	max-width: 43em;
 	line-height: 1.7em;
 	font-size: 120%;
