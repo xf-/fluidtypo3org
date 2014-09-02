@@ -315,6 +315,7 @@ blockquote:after {
 }
 
 .markdown-body div,
+.markdown-body pre.prettyprint code,
 .markdown-body ul,
 .markdown-body ol,
 .markdown-body p {
