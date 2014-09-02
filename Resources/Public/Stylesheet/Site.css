@@ -314,20 +314,20 @@ blockquote:after {
 	content: '\f10e';
 }
 
-article.markdown-body div,
-article.markdown-body ul,
-article.markdown-body ol,
-article.markdown-body p {
+.markdown-body div,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body p {
 	max-width: 43em;
 	line-height: 1.7em;
 	font-size: 120%;
 }
 
-article.markdown-body h4 {
+.markdown-body h4 {
 	line-height: 2em;
 }
 
-article.markdown-body p img {
+.markdown-body p img {
 	margin-right: -10%;
 	margin-left: -5%;
 	width: 130%;
@@ -368,7 +368,7 @@ video {
 }
 
 @media all and (max-width: 1200px) {
-	article.markdown-body p img {
+	.markdown-body p img {
 		margin-right: -10%;
 		margin-left: -5%;
 		width: 110%;
@@ -390,13 +390,13 @@ video {
 }
 @media all and (max-width: 991px) {
 
-	article.markdown-body div,
-	article.markdown-body ul,
-	article.markdown-body ol,
-	article.markdown-body p {
+	.markdown-body div,
+	.markdown-body ul,
+	.markdown-body ol,
+	.markdown-body p {
 		max-width: 100%;
 	}
-	article.markdown-body p img {
+	.markdown-body p img {
 		margin-right: 0;
 		margin-left: 0;
 		max-width: 100% !important;

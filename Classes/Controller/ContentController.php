@@ -146,7 +146,13 @@ class ContentController extends AbstractFluxController {
 		$this->changeBlockquoteToInlineAlerts($document);
 		$this->retargetRelativeMarkdownFileLinks($document);
 		$this->retargetImages($document);
-		$html = $document->saveXML($document->getElementsByTagName('article')->item(0));
+		$this->retargetImages($document);
+		foreach ($document->getElementsByTagName('div') as $element) {
+			if ('markdown-body entry-content' === $element->getAttribute('class')) {
+				$html = $document->saveXML($element);
+				break;
+			}
+		}
 		$this->view->assign('html', $html);
 		$this->view->assign('edit', $this->settings['editBasePath'] . $this->settings['markdownFile'] . '?message=[DOC] Edited ' . basename($filePathAndFilename));
 		$this->view->assign('parentPageUid', $GLOBALS['TSFE']->page['pid']);
