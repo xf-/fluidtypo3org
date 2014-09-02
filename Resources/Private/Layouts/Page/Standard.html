@@ -2,6 +2,7 @@
 <f:layout name="Page/Standard" />
 
 <div id="wrapper">
-	<f:render partial="Page/Top" />
+	<f:render partial="Page/Top" arguments="{_all}" />
+	<f:render partial="Page/Teaser" arguments="{_all}" />
 	<f:render section="Main" />
 </div>

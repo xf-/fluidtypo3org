@@ -1,0 +1,32 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+{v:page.menu(entryLevel: 1, id: 'submenu') -> v:variable.set(name: 'menuHtml')}
+<f:if condition="{menuHtml}">
+	<f:then>
+		<div id="teaser">
+			<div class="container">
+				<a href="/" title="Home" id="home">
+					<span>
+						<canvas class="logo sub"></canvas>
+					</span>
+				</a>
+				<v:page.menu pageUid="{settings.documentationRootPageUid}">
+					{rootLine -> f:count() -> v:variable.set(name: 'numberOfSegments')}
+					{f:if(condition: '{rootLine -> f:count()} > 4', then: 3, else: 2) -> v:variable.set(name: 'slicePoint')}
+					<h1>{rootLine -> v:iterator.reverse() -> v:iterator.slice(start: '-{slicePoint}') -> v:iterator.extract(key: 'title') -> v:iterator.implode(glue: ' &middot; ') -> v:or(alternative: page.title)}</h1>
+				</v:page.menu>
+				{menuHtml -> f:format.raw()}
+			</div>
+		</div>
+	</f:then>
+	<f:else>
+		<div id="blank">
+			<div class="container">
+				<a href="/" title="Home" id="home">
+					<span>
+						<canvas class="logo sub"></canvas>
+					</span>
+				</a>
+			</div>
+		</div>
+	</f:else>
+</f:if>

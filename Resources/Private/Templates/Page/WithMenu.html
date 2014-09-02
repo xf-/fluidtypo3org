@@ -1,6 +1,6 @@
 {namespace flux=FluidTYPO3\Flux\ViewHelpers}
 {namespace v=FluidTYPO3\Vhs\ViewHelpers}
-<f:layout name="Page/Front" />
+<f:layout name="Page/Standard" />
 
 <f:section name="Configuration">
 	<flux:form id="page">
@@ -19,21 +19,6 @@
 </f:section>
 
 <f:section name="Main">
-	<div id="teaser">
-		<div class="container">
-			<a href="/" title="Home" id="home">
-				<span>
-					<canvas class="logo sub"></canvas>
-				</span>
-			</a>
-			<v:page.menu pageUid="{settings.documentationRootPageUid}">
-				{rootLine -> f:count() -> v:variable.set(name: 'numberOfSegments')}
-				{f:if(condition: '{rootLine -> f:count()} > 4', then: 3, else: 2) -> v:variable.set(name: 'slicePoint')}
-				<h1>{rootLine -> v:iterator.reverse() -> v:iterator.slice(start: '-{slicePoint}') -> v:iterator.extract(key: 'title') -> v:iterator.implode(glue: ' &middot; ') -> v:or(alternative: page.title)}</h1>
-			</v:page.menu>
-			<v:page.menu entryLevel="1" id="submenu" />
-		</div>
-	</div>
 	<div class="container body">
 		<v:variable.set name="contentWidths" value="{0: 12, 1: 12, 2: 12}" />
 		<div class="row">

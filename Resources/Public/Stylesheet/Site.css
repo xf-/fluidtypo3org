@@ -10,11 +10,21 @@ canvas.logo {
 	padding-bottom: 10%;
 	width: 100%;
 }
+
 canvas.logo.sub {
 	max-height: 90px;
 	margin-bottom: -30px;
 	background-size: 100%;
 	width: auto;
+}
+
+#blank canvas.logo.sub {
+	background-size: 90%;
+}
+
+#blank .container {
+	min-height: 70px;
+	max-height: 70px;
 }
 
 body.front .container.body {
