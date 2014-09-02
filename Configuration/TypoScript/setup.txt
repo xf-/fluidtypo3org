@@ -27,7 +27,7 @@ plugin.tx_news.view.overlays.fluidtypo3org {
 }
 
 plugin.tx_vhs.settings {
-	prependPath = http://static.fluidtypo3.org/
+	prependPath = http://fluidtypo3.org/
 }
 
 plugin.tx_vhs.settings.asset {
