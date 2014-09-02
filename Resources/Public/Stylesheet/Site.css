@@ -324,6 +324,10 @@ blockquote:after {
 	font-size: 120%;
 }
 
+.markdown-body pre.prettyprint code {
+	font-size: 100%;
+}
+
 .markdown-body h4 {
 	line-height: 2em;
 }
