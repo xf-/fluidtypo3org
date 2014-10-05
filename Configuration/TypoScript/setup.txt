@@ -26,10 +26,6 @@ plugin.tx_news.view.overlays.fluidtypo3org {
 	layoutRootPath = EXT:fluidtypo3org/Resources/Private/Layouts/
 }
 
-plugin.tx_vhs.settings {
-	prependPath = http://fluidtypo3.org/
-}
-
 plugin.tx_vhs.settings.asset {
 	jquery.path = EXT:fluidtypo3org/Resources/Public/Javascript/jquery-1.11.1.min.js
 	bootstrapScript.path = EXT:fluidtypo3org/Resources/Public/Libraries/bootstrap-3.1.1-dist/js/bootstrap.min.js
