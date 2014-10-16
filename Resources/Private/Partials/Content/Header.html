@@ -1,6 +1,5 @@
 {namespace v=FluidTYPO3\Vhs\ViewHelpers}
-{namespace fcc=FluidTYPO3\FluidcontentCore\ViewHelpers}
-<fcc:tag name="h{content.settings.header.type -> v:or(alternative: record.header_layout) -> v:or(alternative: settings.header.type)}"
+<v:tag name="h{content.settings.header.type -> v:or(alternative: record.header_layout) -> v:or(alternative: settings.header.type)}"
          class="{content.settings.header.className}">
 	{record.header -> f:format.raw()}
-</fcc:tag>
+</v:tag>

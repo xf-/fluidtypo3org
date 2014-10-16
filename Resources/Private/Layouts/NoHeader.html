@@ -1,4 +1,3 @@
-{namespace fcc=FluidTYPO3\FluidcontentCore\ViewHelpers}
 {namespace flux=FluidTYPO3\Flux\ViewHelpers}
 {namespace v=FluidTYPO3\Vhs\ViewHelpers}
 
@@ -8,10 +7,10 @@
 	<f:if condition="{content.settings.container.addAnchor}">
 		<a id="{record.header -> v:or(alternative: record.titleAttribute) -> v:or(alternative: 'content {record.uid}') -> v:format.url.sanitizeString()}"></a>
 	</f:if>
-	<fcc:tag name="{v:variable.get(name: 'content.settings.container.types.{record.CType}') -> v:or(alternative: content.settings.container.types.default)}"
+	<v:tag name="{v:variable.get(name: 'content.settings.container.types.{record.CType}') -> v:or(alternative: content.settings.container.types.default)}"
 	         class="{content.settings.container.className}">
 		<!--TYPO3SEARCH_begin-->
 		<f:render section="Main" />
 		<!--TYPO3SEARCH_end-->
-	</fcc:tag>
+	</v:tag>
 </flux:form.data>
