@@ -24,7 +24,7 @@
 		<div class="row">
 			<div class="col-md-3 col-xs-4 col-sm-4">
 				<h4>{v:page.info(pageUid: settings.documentationRootPageUid, field: 'title')}</h4>
-				<v:page.menu entryLevel="2" levels="3" expandAll="TRUE" class="leftmenu" />
+				<v:page.menu entryLevel="2" levels="3" expandAll="TRUE" class="leftmenu" useShortcutUid="FALSE" />
 			</div>
 			<v:variable.set name="contentWidths" value="{0: 9, 1: 8, 2: 8}" />
 			<div class="container col-md-{contentWidths.0} col-xs-{contentWidths.1} col-sm-{contentWidths.2}">
