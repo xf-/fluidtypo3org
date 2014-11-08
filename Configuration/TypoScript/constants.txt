@@ -1,0 +1,15 @@
+##
+# tx_news
+##
+plugin.tx_news {
+
+    rss.channel {
+        title = FluidTYPO3.org News Feed
+        description =
+        link = https://fluidtypo3.org
+        language = en-gb
+        copyright = FluidTYPO3.org Team
+        category =
+        generator = TYPO3 CMS with flux-compensator enabled
+    }
+}
