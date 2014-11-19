@@ -4,6 +4,14 @@ body{
 	overflow-x: hidden;
 }
 
+a, button, input {
+	outline: none;
+}
+
+input, textarea, select {
+	box-shadow: none;
+}
+
 canvas.logo {
 	max-height: 400px;
 	background: url('../Images/FluidPoweredTYPO3.svgz') no-repeat;
